@@ -16,6 +16,11 @@ function multiplication() {
         echo "Multiplication is $cal"
 }
 
+# Division
+function division() {
+        cal=$(($a/$b))
+        echo "Division is $cal"
+}
 
 echo "Enter a number"
 read a
@@ -25,19 +30,23 @@ read b
 echo "Enter 1 for Addition"
 echo "Enter 2 for Subtraction"
 echo "Enter 3 for Multiplication"
+echo "Enter 4 for Division"
+
 read c
-
-if [ $c -eq 1 ]
-then
-	addition
-
-elif [ $c -eq 2 ]
-then
-	subtraction
-
-elif [ $c -eq 3 ]
-then
-	multiplication
-else
-	echo "Invalid Operation"
-fi
+case $c in
+	1)
+		addition
+		;;
+	2)
+		subtraction
+		;;
+	3)
+		multiplication
+		;;
+	4)
+		division
+		;;
+	*)
+		echo "Invalid operation"
+		;;
+esac
